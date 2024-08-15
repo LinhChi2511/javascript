@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>week</title>
+</head>
+<body>
+    <div>
+        <input type="number" id="thu">
+        <button onclick="kiemtrangay()">kiểm tra</button>
+    </div>
+</body>
+<script>
+    function kiemtrangay(){
+        let date = parseFloat(document.getElementById('thu').value);
+        if (date == 1){
+            document.write('CHỦ NHẬT');
+        } else if (date == 2){
+            document.write('THỨ HAI')
+        } else if (date == 3){
+            document.write('THỨ BA')
+        } else if (date == 4){
+            document.write('THỨ TƯ')
+        }else if (date == 5){
+            document.write('THỨ NĂM')
+        }else if (date == 6){
+            document.write('THỨ SÁU')
+        }else if (date == 7){
+            document.write('THỨ BẢY')
+        }else {
+            document.write('không phải ngày trong tuần')
+        }
+    }
+</script>
+</html>
