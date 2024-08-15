@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tiente</title>
+    <style>
+        th,td{
+            text-align: left;
+            width: 190px;
+        }
+    </style>
+    <script src="democalculator.js"></script>
+</head>
+<body>
+   <table>
+       <tr>
+           <th>Amount</th>
+           <th>From Currency</th>
+           <th>To Currency</th>
+           <td></td>
+       </tr>
+       <tr>
+           <td style="width: 100px"> <input type="number" id="tien"> </td>
+           <td>
+            <select id="vao">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+           </td>
+           <td>
+               <select id="ra">
+                   <option value="VND">VND</option>
+                   <option value="USD">USD</option>
+               </select>
+           </td>
+           <td> <button onclick="doitien()">Convert</button> </td>
+       </tr>
+       <tr>
+           <th>Result </th>
+       </tr>
+       <tr>
+           <td><div id="kq"></div></td>
+       </tr>
+   </table>
+</body>
+</html>
