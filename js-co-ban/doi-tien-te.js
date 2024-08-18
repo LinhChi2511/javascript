@@ -1,6 +1,6 @@
 function doitien(){
     let tien = parseFloat(document.getElementById('tien').value);
-    let vao = document.getElementById('vao').value;
+    let vao = document.getElementById("vao").value;
     let ra = document.getElementById('ra').value;
     let result
     if (vao == "USD" && ra == "VND"){
