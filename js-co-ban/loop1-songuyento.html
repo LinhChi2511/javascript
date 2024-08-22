@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị n số nguyên tố</title>
+</head>
+<body>
+<script>
+    let num = +prompt('Nhập số lượng số nguyên tố muốn được in ra');
+    document.write(`dãy ${num} số nguyên tố đầu tiên`)
+    let count = 0;
+//     biến này dùng để kiểm tra đã đủ số lượng chưa
+    for(let i=2 ; i < 100; i++ ){
+        if (count<num) {
+            let uoc = 0;
+            // biến này kiểm tra xem số đó chia hết cho mấy số
+            for (let j = 1; j <= i; j++) {
+                if (i % j == 0) {
+                    uoc = uoc+ 1;
+               }
+            }
+            if (uoc == 2) {
+                document.write(i+"<br>");
+                count = count + 1 ;
+            }
+        } else {
+            break;
+        }
+    }
+</script>
+</body>
+</html>
