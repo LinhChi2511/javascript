@@ -114,6 +114,4 @@ function doanso(){
         alert('chúc mừng bạn đã đoán đúng');
         document.write(`lần ${count} là đúng nè : ${diem}` )
     }
-
-
 }

@@ -161,12 +161,13 @@ function b11(){
 
 function b12(){
     // đây là bài test thử
-    let bandau = parseFloat(prompt('nhập số tiền ban đầu'));
-    let lai = parseFloat(prompt('nhập tiền lãi'));
-    let thang = parseInt(prompt('nhập số tháng cho vay'));
-    if (!isNaN(bandau) && !isNaN(lai) && !isNaN(thang) && bandau >=0 && lai >= 0 && thang >= 0){
+    let bandau = +prompt('nhập số tiền ban đầu');
+    let lai = +prompt('nhập tiền lãi');
+    let thang = +prompt('nhập số tháng cho vay');
+    if (!isNaN(bandau) && !isNaN(lai) && !isNaN(thang) && bandau >=0 && lai >= 0 && thang >= 0 && parseInt(thang)===thang){
         let tragoc = bandau / thang;
         let solai=0;
+        // số tiền lãi cần trả theo tháng
         for(var i = 0; i <= thang;i++){
             let laitiep = (bandau - tragoc*i)*lai;
             solai = solai + laitiep;
