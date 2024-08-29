@@ -69,7 +69,7 @@ function sum30chia7(){
     //     }
     // }
     let sum = 0;
-    for (let i=0,count =1; i%7===0 && count<=30; i=i+7){
+    for (let i=0,count =0; i%7===0 && count==30; i=i+7){
         count++;
         sum +=i;
     }
