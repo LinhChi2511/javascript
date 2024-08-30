@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm có sẵn của mảng</title>
+</head>
+<body>
+<div>
+    <button onclick="bai2()">Điền thêm</button>
+    <button onclick="chuthuong()">Chữ hoa</button>
+</div>
+<script>
+    let arr = ["Red", "Green","White","Black"];
+    // document.write(`"${arr}"`);
+    console.log(arr.toString());
+//     toString() -> viết liền các phần tử trong chuỗi cách nhau dấu ,
+function bai2() {
+    let num = prompt('hãy nhập vào 1 số');
+    let mang = num.split('');
+    // split -> chia chuỗi thành cách chuỗi con
+    let mangmoi = [];
+    for (let i=0; i<mang.length; i++){
+        mangmoi.push(mang[i]);
+        if (mang[i]%2===0){
+            mangmoi.push('-');
+        }
+    }
+    console.log(mang);
+    document.write(mangmoi.join(''));
+//     join -> gộp các phần tử của mảng, ('') không có khoảng trống giữa các phần tử
+}
+function chuthuong(){
+    let m = prompt('hãy nhập vào 1 chuỗi');
+    let chuoi = m.split('');
+    let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let lower = 'abcdefghijklmnopqrstuvwxyz';
+    let chuoimoi =[];
+    for (let i=0;i<chuoi.length; i++){
+        if (upper.indexOf(chuoi[i]) !== -1){
+            // kiểm tra ký tự hiện tại có phải chữ in hoa không
+
+            chuoimoi.push(chuoi[i].toLowerCase());
+        } else if (lower.indexOf(chuoi[i]) !== -1){
+            chuoimoi.push(chuoi[i].toUpperCase());
+        }else {
+            chuoimoi.push(chuoi[i]);
+        }
+    }
+    // let chuoimoi = chuoi.toUpperCase();
+    // toUpperCase -> chuyển từ chữ thường thành chữ hoa
+    document.write(chuoimoi.join(''))
+}
+</script>
+</body>
+</html>
