@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hàm kiểm tra số nguyên tố</title>
+</head>
+<body>
+<script>
+    let a;
+    do {
+        a = +prompt('Nhập vào 1 số nguyên dương');
+    } while (isNaN(a) || a<=0 || parseInt(a)!==a)
+    isPrime(a);
+    function isPrime(num){
+        let Prime = true;
+        if (num < 2){
+            Prime = false;
+        } else {
+            for (let i=2; i < Math.sqrt(num); i++){
+                if (num%i === 0){
+                    Prime = false;
+                    break;
+                }
+            }
+        }
+        if (Prime){
+            alert(`${num} là 1 số nguyên tố`);
+        } else {
+            alert(`${num} không phải là 1 số nguyên tố`)
+        }
+        return Prime;
+    }
+</script>
+</body>
+</html>

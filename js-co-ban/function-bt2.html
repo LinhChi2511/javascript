@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2: Hàm</title>
+</head>
+<body>
+<div>
+    <button onclick="B1()">Bài 1</button>
+    <button onclick="B2()">Bài 2</button>
+    <button onclick="B3()">Bài 3</button>
+    <button onclick="B4()">Bài 4</button>
+    <button onclick="B5()">Bài 5</button>
+    <button onclick="B6()">Bài 6</button>
+    <button onclick="B7()">Bài 7</button>
+    <button onclick="B8()">Bài 8</button>
+    <button onclick="B9()">Bài 9</button>
+</div>
+<script>
+    const pi = 3.14;
+    function B1(){
+        let x = +prompt('Nhập 1 số muốn tính bình phương');
+        squareNum(x);
+    }
+    function B2(){
+        let r;
+        do {
+            r = prompt('nhập bán kính hình tròn, r > 0')
+        } while (isNaN(r) || r<=0)
+        circle(r);
+    }
+    function B3(){
+        let num;
+        do {
+            num = +prompt('Nhập 1 số nguyên dương để tính giai thừa')
+        } while (isNaN(num) && num<=0 && parseInt(num) !== num)
+        giaithua(num);
+    }
+    function B4(){
+        let nhap = prompt('nhập vào 1 ký tự ');
+        isNumber(nhap);
+    }
+    function B5(){
+        let array = [];
+        for (let i =0; i<3; i++){
+            do {
+                a = +prompt(`Nhập số nguyên thứ ${i+1}`);
+            } while (isNaN(a)|| parseInt(a)!==a)
+            array.push(a);
+        }
+        console.log(array);
+        minArray(array);
+    }
+    function B6(){
+        let num;
+        do {
+            num = prompt('Nhập vào 1 số')
+        } while (isNaN(num))
+        Int(num);
+    }
+    function B7(){
+        let a,b;
+        do {
+             a = +prompt('Input first Int number ');
+             b = +prompt('Input second Int number ');
+        } while (isNaN(a) || isNaN(b) || parseInt(a)!==a || parseInt(b)!==b)
+        document.write(`số thứ nhất là ${a}` + "<br>");
+        document.write(`số thứ hai là ${b}`+ "<br>");
+        changePosition(a,b);
+    }
+    function B8(){
+        let arr = [];
+        for (let i = 0; i<10; i++){
+            do {
+                a = +prompt(`Nhập vào số nguyên thứ ${i+1} trong dãy`);
+            } while (parseInt(a)!==a && isNaN(a));
+            arr.push(a);
+        }
+        console.log(arr)
+        changeArray(arr);
+    }
+    function B9(){
+        let arr = [];
+        for (let i=0; i<5; i++){
+            let m = prompt(`Nhập vào kí tự thứ ${i+1} trong mảng`);
+            arr.push(m);
+        }
+        console.log(arr);
+        let kitu = prompt('nhập kí tự để kiểm tra');
+        checkString(arr,kitu)
+    }
+
+
+
+    function squareNum(num){
+        let result = num*num;
+        document.write(`Bình phương của ${num} = ${result}`);
+    }
+    function circle(num){
+        let dt = squareNum(num)*pi;
+        let chuvi = 2*pi*num;
+        document.write(`Diện tích hình tròn có bán kính ${num} là ${dt}`);
+        document.write(`Chu vi hình tròn có bán kính ${num} là ${chuvi}`);
+    }
+    function giaithua(x){
+        let gt = 1;
+        for (let i = 1; i<=x; i++){
+            gt *= i;
+        }
+        document.write(`${x} giai thừa  = ${gt}`);
+    }
+    function isNumber(num){
+        if (isNaN(num)){
+            alert('false');
+        } else {
+            alert('true');
+        }
+    }
+
+    function minArray(arr) {
+        arr.sort(function (a, b) {
+            return a - b;
+        })
+        let min = arr[0];
+        alert(`số nhỏ nhất là ${min}`)
+    }
+    function Int(num){
+        if (parseInt(num) === num && num > 0){
+            alert(`true`)
+        } else {
+            alert(`false`)
+        }
+    }
+    function changePosition(a,b){
+        let t = a;
+        a = b;
+        b = t;
+        document.write('then' + "<br>")
+        document.write(`số thứ nhất là ${a}`+ "<br>");
+        document.write(`số thứ hai là ${b}`+ "<br>");
+    }
+    function changeArray(a){
+        a.reverse();
+        document.write(a)
+    }
+    function checkString(arr, a){
+        let count = 0;
+        for (let i = 0; i< arr.length; i++){
+            if (a===arr[i]){
+                count++;
+            }
+        }
+        if (count > 0){
+            document.write(` có ${count} kí tự ${a} nằm trong mảng`)
+        } else {
+            document.write('-1')
+        }
+    }
+</script>
+</body>
+</html>

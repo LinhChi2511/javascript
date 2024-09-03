@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị nhỏ nhất của mảng</title>
+</head>
+<body>
+<script>
+    let arr1 = [3,5,1,9,-3,7,8];
+    let arr2 = [7,12,6,9,20,56,89];
+    let arr3 = [-1,0,4];
+    let arr5 = []
+    let arr4 = [0,0,0,0,0,0];
+    function minarray(arr){
+        if (arr.length == 0){
+            return -1;
+        }
+        let min = arr[0];
+        for (let i=0; i<arr.length; i++){
+            if (min > arr[i]){
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+    function positon(arr){
+        let po = 0;
+        if (arr.length == 0){
+            return po;
+        }
+        let min = arr[0];
+        for (let i=0; i<arr.length; i++){
+            if (min >= arr[i]){
+                po = i + 1;
+            }
+        }
+        return po;
+    }
+    let min1 = minarray(arr1);
+    let po1 = positon(arr1);
+    document.write(`mảng [${arr1}] có GTNN là ${min1} ở vị trí ${po1} `);
+    document.write("<br>");
+    let min2 = minarray(arr2);
+    let po2 = positon(arr2)
+    document.write(`mảng [${arr2}] có GTNN là ${min2} ở vị trí ${po2}`);
+    document.write("<br>");
+    let min3 = minarray(arr3);
+    let po3 = positon(arr3);
+    document.write(`mảng [${arr3}] có GTNN là ${min3} ở vị trí ${po3} `);
+    document.write("<br>");
+    let min4 = minarray(arr4);
+    let po4 = positon(arr4);
+    document.write(`mảng [${arr4}] có GTNN là ${min4} ở vị trí ${po4} `);
+    document.write("<br>");
+    let min5 = minarray(arr5);
+    let po5 = positon(arr5);
+    document.write(`mảng [${arr5}] có GTNN là ${min5} ở vị trí ${po5} `);
+    document.write("<br>");
+
+</script>
+</body>
+</html>
