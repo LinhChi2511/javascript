@@ -9,17 +9,21 @@
     let newword =prompt('Input word to check');
     let arr = newword.split('');
     console.log(arr);
-    let isPalindrome = true
-    for (let i=0, j=(arr.length-1);j>=i;i++,j-- ){
-        if (arr[i]!==arr[j]){
-            isPalindrome = false;
-            break;
-        }
-    }
-    if(isPalindrome){
+    isPalindrome(arr);
+    // gọi hàm r kiểm tra true false
+    if (isPalindrome){
         alert(`${newword} is Palindrome`);
-    }else {
+    } else {
         alert(`${newword} isn't Palindrome`);
+    }
+    function isPalindrome(a){
+        isPalindrome = true;
+        for (let i=0, j=(a.length-1);j>=i;i++,j-- ){
+            if (a[i]!==a[j]) {
+                isPalindrome =false;
+                return isPalindrome;
+            }
+        }
     }
 </script>
 </body>
