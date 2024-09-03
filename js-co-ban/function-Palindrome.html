@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let newword =prompt('Input word to check');
+    let arr = newword.split('');
+    console.log(arr);
+    let isPalindrome = true
+    for (let i=0, j=(arr.length-1);j>=i;i++,j-- ){
+        if (arr[i]!==arr[j]){
+            isPalindrome = false;
+            break;
+        }
+    }
+    if(isPalindrome){
+        alert(`${newword} is Palindrome`);
+    }else {
+        alert(`${newword} isn't Palindrome`);
+    }
+</script>
+</body>
+</html>
