@@ -20,20 +20,20 @@
     const pi = 3.14;
     function B1(){
         let x = +prompt('Nhập 1 số muốn tính bình phương');
-        squareNum(x);
+        alert(`${x} binình phương = ${squareNum(x)}`);
     }
     function B2(){
         let r;
         do {
-            r = prompt('nhập bán kính hình tròn, r > 0')
-        } while (isNaN(r) || r<=0)
+            r = +prompt('nhập bán kính hình tròn, r > 0')
+        } while (isNaN(r) && r<=0)
         circle(r);
     }
     function B3(){
         let num;
         do {
             num = +prompt('Nhập 1 số nguyên dương để tính giai thừa')
-        } while (isNaN(num) && num<=0 && parseInt(num) !== num)
+        } while (isNaN(num) || num<=0 && parseInt(num) !== num)
         giaithua(num);
     }
     function B4(){
@@ -43,9 +43,10 @@
     function B5(){
         let array = [];
         for (let i =0; i<3; i++){
+            let a;
             do {
-                a = +prompt(`Nhập số nguyên thứ ${i+1}`);
-            } while (isNaN(a)|| parseInt(a)!==a)
+                a = +prompt(`nhập số nguyên thứ ${i+1}`)
+            } while (isNaN(a) && parseInt(a)!==a)
             array.push(a);
         }
         console.log(array);
@@ -64,9 +65,9 @@
              a = +prompt('Input first Int number ');
              b = +prompt('Input second Int number ');
         } while (isNaN(a) || isNaN(b) || parseInt(a)!==a || parseInt(b)!==b)
-        document.write(`số thứ nhất là ${a}` + "<br>");
-        document.write(`số thứ hai là ${b}`+ "<br>");
-        changePosition(a,b);
+        let arr = [a,b]
+        changePosition(arr);
+        alert(`first num = ${arr[0]} second num = ${arr[1]}`)
     }
     function B8(){
         let arr = [];
@@ -94,10 +95,11 @@
 
     function squareNum(num){
         let result = num*num;
-        document.write(`Bình phương của ${num} = ${result}`);
     }
     function circle(num){
-        let dt = squareNum(num)*pi;
+        let dt = 0
+        let a= squareNum(num)*pi;
+        document.write(a)
         let chuvi = 2*pi*num;
         document.write(`Diện tích hình tròn có bán kính ${num} là ${dt}`);
         document.write(`Chu vi hình tròn có bán kính ${num} là ${chuvi}`);
@@ -131,13 +133,10 @@
             alert(`false`)
         }
     }
-    function changePosition(a,b){
-        let t = a;
-        a = b;
-        b = t;
-        document.write('then' + "<br>")
-        document.write(`số thứ nhất là ${a}`+ "<br>");
-        document.write(`số thứ hai là ${b}`+ "<br>");
+    function changePosition(arr){
+        let temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
     }
     function changeArray(a){
         a.reverse();

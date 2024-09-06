@@ -61,14 +61,15 @@
         let star2 = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra','Aquila','Ursa Major','Leo'];
         function findStar(arr1,arr2){
             let input = prompt('Input your star');
-            let count = 1;
+            let isFind =false;
             for (let i = 0; i< arr1.length; i++){
                 if (input===arr1[i]){
                     alert(`ngoi sao tuong ung la ${arr2[i]}`);
-                    count++;
+                    isFind = true;
+                    break;
                 }
             }
-            if (count === 1){
+            if (isFind){
                 alert("Can't find this star");
             }
         }
