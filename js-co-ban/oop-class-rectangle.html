@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="DemoCanvas"></canvas>
+<script>
+    window.onload = function() {
+        //     let canvas = document.getElementById("DemoCanvas");
+        //     let context = canvas.getContext("2d");
+        //
+        //     context.rect(10,10,200 , 100);
+        //     context.stroke();
+        // };
+        let Rectangle = function (length, width) {
+            this.length = length;
+            this.width = width;
+            this.setWidth = function (width) {
+                this.width = width;
+            }
+            this.setHeight = function (height) {
+                this.height = height;
+            }
+            this.getArea = function (length, width) {
+                return length * width;
+            }
+            this.getPerimeter = function (length, width) {
+                return 2 * (length + width);
+            }
+        }
+        let hcn = new Rectangle(400, 200);
+        // khai báo 1 hcn mới có chiều dài =400 rộng =200
+        let dai = hcn.length;
+        let rong = hcn.width;
+        let dt = hcn.getArea(dai, rong);
+        let cv = hcn.getPerimeter(dai, rong);
+        console.log(`hcn có cạnh ${dai} và ${rong} dt = ${dt} cv =${cv}`)
+        let canvas =document.getElementById('DemoCanvas')
+        //
+        let context = canvas.getContext("2d");
+        context.rect(20,40, dai, rong);
+        context.fill();
+        // tô đen
+        context.stroke();
+        // tô viền
+        console.log(hcn.width);
+        let newArea = hcn.getArea(dai,rong);
+        alert(`The Rectangle has height = ${dai} and width = ${rong} Area = ${newArea}`);
+    }
+</script>
+</body>
+</html>

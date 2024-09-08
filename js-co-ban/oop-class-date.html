@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My date</title>
+</head>
+<body>
+<script>
+    let myDate = function (day,month,year){
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.getDay = function (){
+            return this.day;
+        }
+        this.getMonth = function (){
+            return this.month;
+        }
+        this.getYear = function (){
+            return this.year;
+        }
+        this.setDay = function (day){
+            this.day = day;
+        }
+        this.setMonth = function (month){
+            this.month = month;
+        }
+        this.setYear = function (year){
+            this.year = year;
+        }
+        this.setDate = function (day,month,year){
+            this.setDay(day);
+            this.setMonth(month);
+            this.setYear(year);
+            return `${day}/${month}/${year}`
+        }
+    }
+    let date = new myDate(2,2,2007);
+    date.setDay(7);
+    date.setMonth(10);
+    date.setYear(2000);
+    let day = date.getDay();
+    let month = date.getMonth();
+    let year = date.getYear();
+    console.log(`${day}/${month}/${year} `);
+    date.setDate(4,12,1996);
+    console.log(`${date.day}/${date.month}/${date.year}`)
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circle</title>
+</head>
+<body>
+<script>
+    let Circle = function (radius){
+        this.radius = radius;
+        this.getRadius = function (){
+            return radius;
+        }
+        // phuong thuc tra ve ban kinh cua hinh tron
+        this.getArea = function (){
+            return Math.PI*radius*radius;
+        }
+    //     phuong thuc tra ve dien tich honh tron
+    }
+    let Circle2 = new Circle(2);
+    let radius = Circle2.getRadius()
+    let Area = Circle2.getArea(radius);
+    document.write(`Circle has radius = ${radius} has Area = ${Area} <br>` );
+    let circle3 = new Circle(3);
+    let radius3 = circle3.getRadius();
+    let area3 = circle3.getArea(radius3);
+    document.write(`Circle has radius = ${radius3} has Area = ${area3}`)
+</script>
+</body>
+</html>

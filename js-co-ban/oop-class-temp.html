@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+<script>
+    let Temperature = function (Celsius){
+        this.doC = Celsius ;
+        this.getF = function (doC){
+            return ((doC*9/5)+32);
+        }
+        this.getK = function (doC){
+            return (doC+273);
+        }
+    }
+    let temp = new Temperature(25);
+    let doC = temp.doC;
+    let doF = temp.getF(doC);
+    document.write(`${doC} độ C = ${doF} độ F  <br>`);
+    let doK = temp.getK(doC);
+    document.write(`${doC} độ C = ${doK} độ K <br>`)
+</script>
+</body>
+</html>
