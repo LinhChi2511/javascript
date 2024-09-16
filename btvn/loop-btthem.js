@@ -56,7 +56,7 @@ function findarr(){
  function snt(){
    let isPrime = false
      do {
-         let so = +prompt('nhập 1 số để kiểm tra');
+         let so = +prompt('nhập 1 số nguyên tố');
          if (so<2){
              isPrime = false;
          } else {
@@ -67,10 +67,42 @@ function findarr(){
                      count++;
                  }
              }
-                 if (count ===0 ){
-                         alert('đây là số nguyên tố')
-                         isPrime = true;
-                 }
+             if (count ===0 ){
+                 alert('đây là số nguyên tố')
+                 isPrime = true;
+                }
          }
      } while(!isPrime)
+ }
+
+ function ktrasnt(){
+    let isPrime = false;
+    do {
+        let num = +prompt('hãy nhập 1 số nguyên tố');
+        if (num<2) {
+            isPrime = true;
+        } else {
+            for (let i=2; i<= Math.sqrt(num);i++) {
+                if (num%i === 0) {
+                    isPrime = true;
+                    break;
+                }
+            }
+            if (isPrime){
+                alert('số nguyên tố nè')
+            }
+        }
+        // } else{
+        //     let isPrime = true;
+        //     for (let i=2; i<= Math.sqrt(num);i++) {
+        //         if (num%i === 0) {
+        //             isPrime = false;
+        //             break;
+        //         }
+        //     }
+        //     if (isPrime){
+        //         alert('đây là số ng')
+        //     }
+        // }
+    } while (!isPrime)
  }
