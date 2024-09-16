@@ -7,48 +7,93 @@
 <body>
 <canvas id="DemoCanvas"></canvas>
 <script>
-    window.onload = function() {
-        //     let canvas = document.getElementById("DemoCanvas");
-        //     let context = canvas.getContext("2d");
-        //
-        //     context.rect(10,10,200 , 100);
-        //     context.stroke();
-        // };
-        let Rectangle = function (length, width) {
-            this.length = length;
-            this.width = width;
-            this.setWidth = function (width) {
-                this.width = width;
-            }
-            this.setHeight = function (height) {
-                this.height = height;
-            }
-            this.getArea = function (length, width) {
-                return length * width;
-            }
-            this.getPerimeter = function (length, width) {
-                return 2 * (length + width);
-            }
+    class Rectangle {
+        dai;
+        rong;
+        // là method đặc biệt sử dụng để khởi tạo đối tượng
+        constructor(rong, dai) {
+            this.rong = rong;
+            this.dai = dai;
         }
-        let hcn = new Rectangle(400, 200);
-        // khai báo 1 hcn mới có chiều dài =400 rộng =200
-        let dai = hcn.length;
-        let rong = hcn.width;
-        let dt = hcn.getArea(dai, rong);
-        let cv = hcn.getPerimeter(dai, rong);
-        console.log(`hcn có cạnh ${dai} và ${rong} dt = ${dt} cv =${cv}`)
-        let canvas =document.getElementById('DemoCanvas')
-        //
-        let context = canvas.getContext("2d");
-        context.rect(20,40, dai, rong);
-        context.fill();
-        // tô đen
-        context.stroke();
-        // tô viền
-        console.log(hcn.width);
-        let newArea = hcn.getArea(dai,rong);
-        alert(`The Rectangle has height = ${dai} and width = ${rong} Area = ${newArea}`);
+        dientich (){
+            return this.dai*this.rong;
+        }
+        chuvi(){
+            return 2*(this.dai+this.rong);
+        }
+        doiDai(dai){
+            this.dai = dai;
+            return this.dai;
+        }
+        doiRong(rong){
+            this.rong = rong;
+            return this.rong;
+        }
+        // hàm canvas để vẽ
+        draw(x,y,color){
+            let canvas = document.getElementById("DemoCanvas");
+            let ctx = canvas.getContext("2d");
+            ctx.fillRect(x,y,this.rong, this.dai);
+            // giá trị truyền vào x,y là tọa độ bắt đầu vẽ; vẽ hình chữ nhật full màu
+            // ctx.rect(x,y,this.dai,this.rong);
+            // ctx.stroke();
+            // vẽ hình chữ nhật viền ngoài
+            ctx.fillStyle = color;
+        //     tô màu dựa vào tham số màu truyền vào
+        }
     }
+    let hinhchunhat1 = new Rectangle(200,100);
+    // alert(chunhat1.dai);
+    console.log(` dai = ${hinhchunhat1.dai}` +"<br>");
+    hinhchunhat1.doiDai(12);
+    hinhchunhat1.doiRong(8);
+    let dientich = hinhchunhat1.dientich();
+    console.log(`dientich = ${dientich} <br>`);
+    let chuvi = hinhchunhat1.chuvi();
+    console.log(`chuvi = ${chuvi}`);
+    hinhchunhat1.draw(50,50,"blue");
+    // window.onload = function() {
+    //     //     let canvas = document.getElementById("DemoCanvas");
+    //     //     let context = canvas.getContext("2d");
+    //     //
+    //     //     context.rect(10,10,200 , 100);
+    //     //     context.stroke();
+    //     // };
+    //     let Rectangle = function (length, width) {
+    //         this.length = length;
+    //         this.width = width;
+    //         this.setWidth = function (width) {
+    //             this.width = width;
+    //         }
+    //         this.setHeight = function (height) {
+    //             this.height = height;
+    //         }
+    //         this.getArea = function (length, width) {
+    //             return length * width;
+    //         }
+    //         this.getPerimeter = function (length, width) {
+    //             return 2 * (length + width);
+    //         }
+    //     }
+    //     let hcn = new Rectangle(400, 200);
+    //     // khai báo 1 hcn mới có chiều dài =400 rộng =200
+    //     let dai = hcn.length;
+    //     let rong = hcn.width;
+    //     let dt = hcn.getArea(dai, rong);
+    //     let cv = hcn.getPerimeter(dai, rong);
+    //     console.log(`hcn có cạnh ${dai} và ${rong} dt = ${dt} cv =${cv}`)
+    //     let canvas =document.getElementById('DemoCanvas')
+    //     //
+    //     let context = canvas.getContext("2d");
+    //     context.rect(20,40, dai, rong);
+    //     context.fill();
+    //     // tô đen
+    //     context.stroke();
+    //     // tô viền
+    //     console.log(hcn.width);
+    //     let newArea = hcn.getArea(dai,rong);
+    //     alert(`The Rectangle has height = ${dai} and width = ${rong} Area = ${newArea}`);
+    // }
 </script>
 </body>
 </html>

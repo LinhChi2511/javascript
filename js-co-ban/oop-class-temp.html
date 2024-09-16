@@ -6,21 +6,22 @@
 </head>
 <body>
 <script>
-    let Temperature = function (Celsius){
-        this.doC = Celsius ;
-        this.getF = function (doC){
-            return ((doC*9/5)+32);
+    class Temperature {
+        doC;
+        constructor (doC) {
+            this.doC = doC;
         }
-        this.getK = function (doC){
-            return (doC+273);
+        convertToF(){
+            return (this.doC*9/5)+32;
+        }
+        convertToK(){
+            return this.doC + 273.15;
         }
     }
-    let temp = new Temperature(25);
-    let doC = temp.doC;
-    let doF = temp.getF(doC);
-    document.write(`${doC} độ C = ${doF} độ F  <br>`);
-    let doK = temp.getK(doC);
-    document.write(`${doC} độ C = ${doK} độ K <br>`)
+    let convert = new Temperature(25);
+    let doC = convert.doC;
+    document.write(`${doC} độ C bằng ${convert.convertToF()} độ F <br>`);
+    document.write(`${doC} độ C bằng ${convert.convertToK()} độ K`);
 </script>
 </body>
 </html>
