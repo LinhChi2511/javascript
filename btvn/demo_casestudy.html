@@ -3,17 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Quản lý danh sách quán ăn khu vực</title>
+    <style>
+        body{
+            margin: 20px;
+        }
+        table{
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        th{
+            color: white;
+            background-color: chocolate;
+        }
+        tr:nth-child(even){
+            background-color: #c9c1c1;
+        }
+    </style>
 </head>
 <body>
 <div>
-    <input id="name" placeholder="Tên quán">
-    <input id="price" type="number" placeholder="giá (vnđ)">
-    <input id="address" placeholder="địa chỉ"><br>
-    mở cửa từ<input id="timein" type="time">
-    đến <input id="timeout" type="time">
+    <input style="width:40%" id="name" placeholder="Tên quán">
+    <input style="width: 40%" id="address" placeholder="địa chỉ">
+    <br>
+    <br>
+    <input style="width: 30%" id="price" type="number" placeholder="giá (vnđ)">
+    mở cửa từ <input id="timein" type="time" style="width:20%">
+    đến <input id="timeout" type="time" style="width: 20%">
+    <br>
+    <br>
     <button onclick="createList()">Thêm mới</button>
-    <p>Danh sách quán</p>
 </div>
+<h1 style="text-align: center">Danh sách quán ăn</h1>
 <div id="display"></div>
 <script>
     class Food{
@@ -39,11 +60,12 @@
     quanan.push(new Food('Bún Đậu Nhà Vua', '49000', 'Thành Thái','10:00','22:00'));
 
     displayList();
+
     function displayList(){
         quanan.sort(function (a,b){
             return a.name.localeCompare(b.name);
         })
-        let temp = '<table style="width: fit-content; text-align: center"; border = 1>';
+        let temp = '<table>';
         temp += '<tr>';
         temp += '<th>STT</th>';
         temp += '<th>Tên quán</th>';
@@ -51,7 +73,7 @@
         temp += '<th>Địa chỉ</th>';
         temp += '<th>Giờ mở cửa</th>';
         temp += '<th>Giờ đóng cửa</th>';
-        // temp += '<th colspan="2">Chỉnh sửa</th>'
+        temp += '<th colspan="2">Chỉnh sửa</th>'
         temp += '</tr>';
         for (let i=0; i<quanan.length; i++ ){
             temp += '<tr>';
@@ -75,7 +97,7 @@
         let address = document.getElementById('address').value;
         let timein = document.getElementById('timein').value;
         let timeout = document.getElementById('timeout').value;
-        if (name==''||price==""||address==""||timeout==""||timein==""){
+        if (name=='' || price=="" || address=="" || timeout=="" || timein==""){
             alert('Vui lòng điền đủ thông tin');
         } else if (price<1000 && parseInt(price)!==price){
                 alert('vui lòng nhập giá trung bình là một số nguyên và tối thiểu là 1000 vnd');
