@@ -7,7 +7,7 @@
 <body>
 <div>
     <input id="name" placeholder="Tên quán">
-    <input id="price" type="number" placeholder="giá">
+    <input id="price" type="number" placeholder="giá (vnđ)">
     <input id="address" placeholder="địa chỉ"><br>
     mở cửa từ<input id="timein" type="time">
     đến <input id="timeout" type="time">
@@ -32,28 +32,37 @@
     }
     let quanan = [];
     quanan.push(new Food('Bún bò Dì Liễu', '35000', 'Nguyễn Tri Phương', '06:00', '14:00'));
-    quanan.push(new Food('Hủ tiếu Nam Vang', '42000', 'Thành Thái','15:00','22:00'));
+    quanan.push(new Food('Hủ tiếu Nam Vang', '42000', 'Tô Hiến Thành','15:00','22:00'));
     quanan.push(new Food('Cơm chiên chú Tèo', '37000', 'Dương Bá Trạc','10:00','19:00'));
     quanan.push(new Food('Ăn vặt nhà Sóc', '25000', 'Bà Hạt','17:00','22:00'));
     quanan.push(new Food('Càfe sữa tươi', '20000', 'Sư Vạn Hạnh','07:00','18:00'));
+    quanan.push(new Food('Bún Đậu Nhà Vua', '49000', 'Thành Thái','10:00','22:00'));
+
     displayList();
     function displayList(){
+        quanan.sort(function (a,b){
+            return a.name.localeCompare(b.name);
+        })
         let temp = '<table style="width: fit-content; text-align: center"; border = 1>';
         temp += '<tr>';
+        temp += '<th>STT</th>';
         temp += '<th>Tên quán</th>';
-        temp += '<th>Giá trung bình</th>';
+        temp += '<th>Giá trung bình (vnđ)</th>';
         temp += '<th>Địa chỉ</th>';
         temp += '<th>Giờ mở cửa</th>';
         temp += '<th>Giờ đóng cửa</th>';
+        // temp += '<th colspan="2">Chỉnh sửa</th>'
         temp += '</tr>';
         for (let i=0; i<quanan.length; i++ ){
             temp += '<tr>';
+            temp += `<td>${i+1}</td>`
             temp += `<td>${quanan[i].name}</td>`;
             temp += `<td>${quanan[i].price} đ</td>`;
             temp += `<td>${quanan[i].address}</td>`;
             temp += `<td>${quanan[i].timein}</td>`;
             temp += `<td>${quanan[i].timeout}</td>`;
             temp += `<td><button onclick="deleteFood(${i})">Xóa</button></td>`;
+            // temp += `<td><button onclick="updateList(${i})">Sửa</button></td>`;
 
             temp += '</tr>'
         }
@@ -66,22 +75,29 @@
         let address = document.getElementById('address').value;
         let timein = document.getElementById('timein').value;
         let timeout = document.getElementById('timeout').value;
-        if (name==''||price==""||address==""){
+        if (name==''||price==""||address==""||timeout==""||timein==""){
             alert('Vui lòng điền đủ thông tin');
-        } else{
-            if (price<1000 || parseInt(price)!==price){
-                alert('vui lòng nhập giá trung bình là một số nguyên và tối thiểu là 1000');
-            } else {
+        } else if (price<1000 && parseInt(price)!==price){
+                alert('vui lòng nhập giá trung bình là một số nguyên và tối thiểu là 1000 vnd');
+            } else if (checkIncludes(name)==false){
+                alert('Quán ăn bạn nhập đã có trong danh sách');
+                } else {
                 quanan.push(new Food(name,price,address, timein,timeout));
                 displayList();
             }
-        }
     }
     function deleteFood(num){
         let kq = confirm(`Bạn có chắc chắn muốn xóa ${quanan[num].name}`);
         if (kq == true){
             quanan.splice(num,1);
             displayList();
+        }
+    }
+    function checkIncludes(name){
+        for (let i=0; i<quanan.length; i++){
+            if (name == quanan[i].name){
+                return false;
+            }
         }
     }
 </script>
