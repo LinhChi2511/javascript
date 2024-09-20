@@ -23,13 +23,14 @@
 </head>
 <body>
 <div>
-    <input style="width:40%" id="name" placeholder="Tên quán">
-    <input style="width: 40%" id="address" placeholder="địa chỉ">
+    <input style="width: 300px" id="name" placeholder="Tên quán">
     <br>
+    <input style="width: 300px" id="address" placeholder="địa chỉ">
     <br>
-    <input style="width: 30%" id="price" type="number" placeholder="giá (vnđ)">
-    mở cửa từ <input id="timein" type="time" style="width:20%">
-    đến <input id="timeout" type="time" style="width: 20%">
+    <input style="width: 300px" id="price" type="number" placeholder="giá (vnđ)">
+    <br>
+    mở cửa từ <input id="timein" type="time">
+    đến <input id="timeout" type="time">
     <br>
     <br>
     <button onclick="createList()">Thêm mới</button>
@@ -99,14 +100,16 @@
         let timeout = document.getElementById('timeout').value;
         if (name=='' || price=="" || address=="" || timeout=="" || timein==""){
             alert('Vui lòng điền đủ thông tin');
-        } else if (price<1000 && parseInt(price)!==price){
-                alert('vui lòng nhập giá trung bình là một số nguyên và tối thiểu là 1000 vnd');
-            } else if (checkIncludes(name)==false){
-                alert('Quán ăn bạn nhập đã có trong danh sách');
-                } else {
-                quanan.push(new Food(name,price,address, timein,timeout));
-                displayList();
-            }
+        } else if (price<1000 && parseInt(price)!==price) {
+            alert('vui lòng nhập giá trung bình là một số nguyên và tối thiểu là 1000 vnd');
+        }else if (timeout == timein) {
+            alert('vui lòng chọn giờ mở cửa khác giờ đóng cửa ')
+        } else if (checkIncludes(name)==false){
+            alert('Quán ăn bạn nhập đã có trong danh sách');
+        } else {
+            quanan.push(new Food(name, price, address, timein, timeout));
+            displayList();
+        }
     }
     function deleteFood(num){
         let kq = confirm(`Bạn có chắc chắn muốn xóa ${quanan[num].name}`);
