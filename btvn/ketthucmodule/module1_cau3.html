@@ -6,6 +6,39 @@
 </head>
 <body>
 <script>
+    let nhapvao = prompt('Nhập tháng năm dưới dạng tháng/năm');
+
+    let arr = nhapvao.split('/');
+    let month = arr[0];
+    let year = arr[1];
+    if (parseInt(month)!==month && month<=0 || month>12 || year<100 || isNaN(month) && isNaN(year) && parseInt(year)!==year){
+        alert('Bạn đã nhập sai định dạng mm/yyyy');
+    } else {
+        checkMonth(month,year);
+    }
+
+    function checkYear(year){
+        if (year%400==0){
+            return true;
+        } else if (year%4==0 && year%100!==0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function checkMonth(month,year){
+        if (month==2){
+            if(checkYear(year)){
+                document.write(`tháng ${month} năm ${year} có 29 ngày`);
+            }else {
+                document.write(`tháng ${month} năm ${year} có 28 ngày`);
+            }
+        } else if(month==4 || month==6 || month==9 || month==11){
+            document.write(`tháng ${month} năm ${year} có 30 ngày`);
+        } else {
+            document.write(`tháng ${month} năm ${year} có 31 ngày`);
+        }
+    }
 </script>
 </body>
 </html>
