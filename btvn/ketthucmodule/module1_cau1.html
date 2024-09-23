@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 1</title>
+</head>
+<body>
+<script>
+    let array = [];
+    let n;
+    do {
+        n = +prompt('Vui lòng nhập độ dài mảng không quá 50 phần tử');
+    } while (isNaN(n)||n<=0||n>=50||parseInt(n)!==n);
+    for (let i=0; i<n; i++){
+        let num;
+        do {
+            num = +prompt(`Nhập số nguyên thứ ${i+1} trong mảng`);
+        } while (isNaN(num)||parseInt(num)!==num);
+        array.push(num);
+    }
+    document.write(array);
+    document.write('<br>');
+    let sum = 0;
+    let count = 0;
+    for (let i=0;i<n;i++){
+        if (array[i]%3==0){
+            sum += array[i];
+            count++;
+        }
+    }
+    let avg = sum/count;
+    document.write(`trung bình cộng các số trong mảng chia hết cho 3 = ${avg}`)
+</script>
+</body>
+</html>

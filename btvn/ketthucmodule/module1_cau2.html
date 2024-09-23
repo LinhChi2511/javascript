@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 2</title>
+</head>
+<body>
+<script>
+    let num;
+    do {
+        num = +prompt('Nhập vào 1 số nguyên dương để kiểm tra số đó có phải số hoàn hảo không')
+    } while (isNaN(num)||num<=0||parseInt(num)!==num);
+    let tonguoc = 0;
+    for (let i=1;i<num;i++){
+        if (num%i===0){
+            tonguoc += i;
+        }
+    }
+    if (tonguoc===num){
+        alert('True');
+    } else {
+        alert('False');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý công nhân xưởng</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 500px;
+        }
+        th{
+            background-color: #5f6062;
+        }
+        tr:nth-child(even){
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+<div align="center" ><h2>Quản lí công nhân</h2>
+<div id="result"></div>
+</div>
+<script>
+    class congNhan{
+        ten;
+        ngaysinh;
+        diachi;
+        luong;
+        chucvu;
+        constructor(ten,ngaysinh,diachi,luong,chucvu) {
+            this.ten = ten;
+            this.ngaysinh = ngaysinh;
+            this.diachi = diachi;
+            this.luong = luong;
+            this.chucvu = chucvu;
+        }
+    }
+    let list = [];
+    list.push(new congNhan('Bùi Lê Vy','12/2/2000','Đà Nẵng',2000,'Nhân viên'));
+    list.push(new congNhan('Lê Minh','22/12/2001','Đà Nẵng',2000,'Nhân viên'));
+    list.push(new congNhan('Trần Thảo Vy','16/3/2002','Huế',2000,'Nhân viên'));
+    list.push(new congNhan('Nguyễn Văn Minh','12/12/2000','Huế',4000,'Quản lý'));
+    displayList();
+
+    function displayList(){
+        list.sort(function (a,b){
+            return a.ten.localeCompare(b.ten);
+        })
+        let temp = '<table>';
+        temp += '<tr>';
+        temp += '<th>STT</th>';
+        temp += '<th>Họ và tên</th>';
+        temp += '<th>Ngày sinh</th>';
+        temp += '<th>Địa chỉ</th>';
+        temp += '<th>Lương</th>';
+        temp += '<th>Chức vụ</th>';
+        temp += '</tr>';
+        for (let i=0; i<list.length;i++){
+            temp += '<tr>';
+            temp += `<td>${i+1}</td>`;
+            temp += `<td>${list[i].ten}</td>`;
+            temp += `<td>${list[i].ngaysinh}</td>`;
+            temp += `<td>${list[i].diachi}</td>`;
+            temp += `<td>${list[i].luong}</td>`;
+            temp += `<td>${list[i].chucvu}</td>`;
+            temp +='</tr>';
+        }
+        temp += '</table>';
+        document.getElementById('result').innerHTML = temp;
+    }
+</script>
+</body>
+</html>
